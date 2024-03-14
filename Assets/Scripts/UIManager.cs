@@ -30,13 +30,19 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void RegisterNewUser()
+    {
+        
+    }
+
     public void ConnectToServer()
     {
-        startMenu.SetActive(false);
-        usernameField.interactable = false;
-        startMenu2.SetActive(true);
-        messageField.interactable = true;
-        Client.Instance.ConnectToServer();
+        ClientSend.ConnectUser();
+        //startMenu.SetActive(false);
+        //usernameField.interactable = false;
+        //startMenu2.SetActive(true);
+        //messageField.interactable = true;
+        //Client.Instance.ConnectToServer();
         
     }
 

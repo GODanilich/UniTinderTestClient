@@ -36,6 +36,7 @@ public class Client : MonoBehaviour
     private void Start()
     {
         tcp = new TCP();
+        ConnectToServer();
     }
 
     private void OnApplicationQuit()
@@ -195,7 +196,10 @@ public class Client : MonoBehaviour
     {
         packetHandlers = new Dictionary<int, PacketHandler>()
         {
-            {(int)ServerPackets.welcome, ClientHandle.Welcome }
+            {(int)ServerPackets.welcome, ClientHandle.Welcome },
+            {(int)ServerPackets.registeredNewUser, ClientHandle.RegisteredNewUser},
+            {(int)ServerPackets.sendIntoApp, ClientHandle.SendIntoApp }
+           
         };
         Debug.Log("Initialized Client Data");
     }

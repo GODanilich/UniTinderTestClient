@@ -36,6 +36,28 @@ public class ClientSend : MonoBehaviour
         }
     }
 
+    public static void RegisterNewUser()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.registerNewUser))
+        {
+            var message = UIManager.Instance.usernameField.text;
+            packet.Write(message);
+
+            SendTCPData(packet);
+        }
+    }
+
+    public static void ConnectUser()
+    {
+        using (Packet packet = new Packet((int)ClientPackets.connectUser))
+        {
+            var message = UIManager.Instance.usernameField.text;
+            packet.Write(message);
+
+            SendTCPData(packet);
+        }
+    }
+
     #endregion
 
 }
