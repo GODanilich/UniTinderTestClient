@@ -10,8 +10,8 @@ public class Client : MonoBehaviour
 {
     public static Client Instance { get; private set; }
     public static int dataBufferSize = 4096;
-
-    [SerializeField] private string ip = "127.0.0.1";
+    public int IdInDatabase;
+    [SerializeField] private string ip = "88.204.57.38";
     [SerializeField] private int port = 26950;
     public int myId = 0;
 
@@ -25,6 +25,7 @@ public class Client : MonoBehaviour
     { if (Instance == null)
         {
             Instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else if (Instance != this)
         {

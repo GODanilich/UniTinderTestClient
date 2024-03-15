@@ -18,7 +18,8 @@ public enum ClientPackets
     welcomeReceived = 1,
     sendMessageToServer = 2,
     registerNewUser,
-    connectUser
+    connectUser,
+    //ClientInApp
 }
 
 public class Packet : IDisposable

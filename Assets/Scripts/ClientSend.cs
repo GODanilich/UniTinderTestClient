@@ -41,6 +41,7 @@ public class ClientSend : MonoBehaviour
         using (Packet packet = new Packet((int)ClientPackets.registerNewUser))
         {
             var message = UIManager.Instance.usernameField.text;
+            packet.Write(Client.Instance.myId);
             packet.Write(message);
 
             SendTCPData(packet);
@@ -51,7 +52,9 @@ public class ClientSend : MonoBehaviour
     {
         using (Packet packet = new Packet((int)ClientPackets.connectUser))
         {
+            
             var message = UIManager.Instance.usernameField.text;
+            packet.Write(Client.Instance.myId);
             packet.Write(message);
 
             SendTCPData(packet);

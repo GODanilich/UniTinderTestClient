@@ -32,7 +32,7 @@ public class UIManager : MonoBehaviour
 
     public void RegisterNewUser()
     {
-        
+        ClientSend.RegisterNewUser();
     }
 
     public void ConnectToServer()
@@ -44,6 +44,14 @@ public class UIManager : MonoBehaviour
         //messageField.interactable = true;
         //Client.Instance.ConnectToServer();
         
+    }
+
+    public void ToAppTrigger()
+    {
+        startMenu.SetActive(false);
+        usernameField.interactable = false;
+        startMenu2.SetActive(true);
+        messageField.interactable = true;
     }
 
     public void SendMessageToServer()
